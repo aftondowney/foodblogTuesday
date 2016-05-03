@@ -1,9 +1,6 @@
 <?php
 
 function simplified_view_form_alter(&$form, &$form_state, $form_id) {
-  print '<pre>';
-  print_r($form);
-  print '</pre>';
     global $user;
     if (in_array('contributor', $user->roles)) {
         if (($form_id == 'node-awards_and_reviews-form') || ($form_id == 'node-awards_and_reviews-form') || ($form_id == 'node-tips-form') || ($form_id == 'node-article-form')) {
@@ -23,3 +20,6 @@ function simplified_view_form_alter(&$form, &$form_state, $form_id) {
       }
     }
 }
+// print '<pre>';
+// print_r($form);
+// print '</pre>';
