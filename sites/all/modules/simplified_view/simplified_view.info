@@ -1,0 +1,5 @@
+name = Simplified Views
+description = simplifies forms viewable by contributors
+package = My Modules
+core = 7.x
+files[] = simplified_view.module
