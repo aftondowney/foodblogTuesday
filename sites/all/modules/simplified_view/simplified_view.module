@@ -1,6 +1,25 @@
 <?php
 
-function simplifiedcontact_form_alter(&$form, &$form_state, $form_id) {
-    print '<pre>';
-    print_r($form_id);
-    print '</pre>';
+function simplified_view_form_alter(&$form, &$form_state, $form_id) {
+  print '<pre>';
+  print_r($form);
+  print '</pre>';
+    global $user;
+    if (in_array('contributor', $user->roles)) {
+        if (($form_id == 'node-awards_and_reviews-form') || ($form_id == 'node-awards_and_reviews-form') || ($form_id == 'node-tips-form') || ($form_id == 'node-article-form')) {
+          $form['author']['#access'] = 0;
+          $form['revision']['#access'] = 0;
+          $form['revision_information']['#access'] = 0;
+          $form['name']['#default_value'] = "Jamie";
+          $form['options']['#access']= 0;
+          $form['options']['status']['#access']= 0;
+          $form['options']['promote']['#access']= 0;
+          $form['options']['sticky']['#access']= 0;
+          $form['comment_settings']['comment']['#default_value'] = 1;
+          $form['menu']['#access'] = 0;
+          $form['path']['#access'] = 0;
+          $form['date']['#access'] = 0;
+          // $form['body']['#language'] = 'und';
+      }
+    }
+}
